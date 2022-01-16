@@ -17,10 +17,11 @@ def lines(a: list):
             if left == 0 and right - left >= 2:
                 destroyed += right - left + 1
             else:
-                destroyed += right - left
+                if right - left > 2:
+                    destroyed += right - left
     return destroyed
 
-# some test code
+
 # if __name__ == "__main__":
 #     test_a = [2, 2, 1, 1, 1, 2, 1]
 #     # should print 6
