@@ -24,15 +24,17 @@ def reverse_notation(s):
             # to execute operation get operands from the stack
             # be careful with operands order during execution
             # your code here
+            var1 = stack.pop()
+            var2 = stack.pop()
             if s[i] == "-":
-                stack.append(stack.pop() - stack.pop())
+                stack.append(var2 - var1)
             if s[i] == "+":
-                stack.append(stack.pop() + stack.pop())
+                stack.append(var2 + var1)
             if s[i] == "*":
-                stack.append(stack.pop() * stack.pop())
+                stack.append(var2 * var1)
             if s[i] == "/":
-                stack.append(stack.pop() / stack.pop())
+                stack.append(var2 / var1)
     return stack.pop()
 
 
-print(reverse_notation([10,3,5,"+","*"]))
+print(reverse_notation([5, 6, '-']))
