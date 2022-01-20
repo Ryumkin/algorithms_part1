@@ -12,16 +12,24 @@ class Deque:
         return "ok"
 
     def pop_front(self):
-
+        if self.empty():
+            return "error"
+        return self.deque.pop(0)
 
     def pop_back(self):
-        pass
+        if self.empty():
+            return "error"
+        return self.deque.pop()
 
     def front(self):
-        pass
+        if self.empty():
+            return "error"
+        return self.deque[0]
 
     def back(self):
-        pass
+        if self.empty():
+            return "error"
+        return self.deque[-1]
 
     def clear(self):
         self.deque.clear()
@@ -33,8 +41,31 @@ class Deque:
     def empty(self):
         return self.size() == 0
 
-def process_deque(commands):
-    pass
+
+def process_deque(commands: list):
+    deque = Deque()
+    result = []
+    for command in commands:
+        args = command.split()
+        if len(args) == 2:
+            if args[0] == 'push_front':
+                result.append(deque.push_front(int(args[1])))
+            elif args[0] == 'push_back':
+                result.append(deque.push_back(int(args[1])))
+        else:
+            if args[0] == 'pop_front':
+                result.append(deque.pop_front())
+            elif args[0] == 'pop_back':
+                result.append(deque.pop_back())
+            elif args[0] == 'front':
+                result.append(deque.front())
+            elif args[0] == 'back':
+                result.append(deque.back())
+            elif args[0] == 'clear':
+                result.append(deque.clear())
+            elif args[0] == 'size':
+                result.append(deque.size())
+    return result
 
 
 if __name__ == "__main__":
