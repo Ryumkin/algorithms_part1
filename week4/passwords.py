@@ -17,8 +17,8 @@ def passwords(L, vocabulary):
         if i < k:
             tbl[i] = lengths[i]
         for j in range(min(k, i)):
-            tbl[i] += lengths[j]
-    return tbl[L]
+            tbl[i] += lengths[j] * tbl[i-j-1]
+    return tbl[-1]
 
 # should print 2
 print(passwords(5, ["hello", "oh"]))
